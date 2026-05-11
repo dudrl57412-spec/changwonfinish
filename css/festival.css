@@ -13,30 +13,29 @@
   margin: 0 auto;
 
   display: flex;
+  flex-direction: column; /* 🔥 세로 배치 */
   align-items: center;
-  gap: 80px;
 }
 
 /* =========================
-   왼쪽 타이틀
+   상단 타이틀 영역
 ========================= */
 .festival-title {
-  width: 280px;
-  flex-shrink: 0;
-
-  /* 🔥 추가 */
+  width: 100%;
   text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 70px;
 }
 
 /* 제목 */
 .festival-title h2 {
   font-size: 42px;
   line-height: 1.4;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-family: "Griun_PolSensibility-Rg";
 }
 
@@ -44,9 +43,8 @@
    페이지네이션
 ========================= */
 .festival-pagination {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 
-  /* 🔥 추가 */
   display: flex;
   justify-content: center;
 }
@@ -56,12 +54,12 @@
   height: 10px;
   background: #bbb;
   opacity: 1;
-  margin-right: 10px;
+  margin: 0 5px;
   transition: 0.4s ease;
 }
 
 .festival-pagination .swiper-pagination-bullet-active {
-  background: #111;
+  background: #007aff;
   width: 32px;
   border-radius: 999px;
 }
@@ -79,11 +77,9 @@
   border-radius: 999px;
 
   background: #eee;
-
   color: #333;
 
   text-decoration: none;
-
   font-size: 14px;
 
   transition: 0.4s ease;
@@ -98,11 +94,11 @@
    스와이퍼
 ========================= */
 .festival-swiper {
-  width: calc(100% - 280px);
+  width: 100%;
   overflow: visible;
 }
 
-/* 🔥 슬라이드 크기 */
+/* 슬라이드 */
 .festival-swiper .swiper-slide {
   width: 320px !important;
 }
@@ -123,9 +119,7 @@
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   이미지 랩
-========================= */
+/* 이미지 랩 */
 .festival-img-wrap {
   width: 100%;
   height: 300px;
@@ -133,28 +127,21 @@
   border-radius: 22px;
 }
 
-/* =========================
-   이미지
-========================= */
+/* 이미지 */
 .festival-img-wrap img {
   width: 100%;
-  height: 80%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
   transition: 0.7s ease;
 }
 
-/* hover 이미지 확대 */
 .festival-card:hover img {
   transform: scale(1.08);
 }
 
-/* =========================
-   텍스트
-========================= */
+/* 텍스트 */
 .festival-text {
-  padding-top: 15px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -181,9 +168,4 @@
 .festival-text a:hover {
   color: #000;
   transform: translateX(4px);
-}
-.festival-pagination .swiper-pagination-bullet-active {
-  background: #007aff;
-  width: 32px;
-  border-radius: 999px;
 }
