@@ -1,0 +1,257 @@
+/* =========================
+   맛집 섹션
+========================= */
+.food-section {
+  padding: 140px 0;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+/* 전체 */
+.food-inner {
+  width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 90px;
+}
+
+/* =========================
+   왼쪽 지도
+========================= */
+.food-map-wrap {
+  width: 650px;
+}
+
+/* 제목 */
+.food-map-wrap h2 {
+  font-size: 42px;
+
+  text-align: center;
+
+  margin-bottom: 120px;
+
+  font-family: "Griun_PolSensibility-Rg";
+}
+
+/* 지도 */
+.food-map {
+  position: relative;
+
+  width: 100%;
+}
+
+.map-bg {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 30px;
+
+  user-select: none;
+}
+
+/* =========================
+   클릭 영역 공통
+========================= */
+.food-area {
+  position: absolute;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+
+  border-radius: 50%;
+}
+
+/* hover */
+.food-area:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   활성화 작은 원
+========================= */
+.food-area.active::after {
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  border: 3px solid #fff;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+
+  animation: ping 1.5s infinite;
+}
+
+/* =========================
+   마산
+========================= */
+.food-area.masan {
+  left: 85px;
+  top: 130px;
+
+  width: 170px;
+  height: 210px;
+}
+
+.food-area.masan.active::after {
+  left: 66%;
+  top: 22%;
+}
+
+/* =========================
+   창원
+========================= */
+.food-area.changwon {
+  left: 255px;
+  top: 75px;
+
+  width: 220px;
+  height: 280px;
+}
+
+.food-area.changwon.active::after {
+  left: 34%;
+  top: 35%;
+}
+
+/* =========================
+   진해
+========================= */
+.food-area.jinhae {
+  right: 65px;
+  top: 125px;
+
+  width: 170px;
+  height: 210px;
+}
+
+.food-area.jinhae.active::after {
+  left: 29%;
+  top: 34%;
+}
+
+/* =========================
+   오른쪽
+========================= */
+.food-content {
+  flex: 1;
+}
+
+/* 제목 */
+.food-header {
+  margin-bottom: 40px;
+}
+
+.food-header h3 {
+  font-size: 42px;
+
+  margin-bottom: 14px;
+}
+
+.food-header p {
+  font-size: 16px;
+
+  color: #666;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   리스트
+========================= */
+.food-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+/* 카드 */
+.food-card {
+  background: #fff;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  transition: 0.4s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* 이미지 */
+.food-card img {
+  width: 170px;
+
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  flex-shrink: 0;
+
+  display: block;
+}
+
+/* 텍스트 */
+.food-card-text {
+  flex: 1;
+}
+
+.food-card-text h4 {
+  font-size: 24px;
+
+  margin-bottom: 10px;
+
+  line-height: 1.4;
+}
+
+.food-card-text p {
+  font-size: 15px;
+
+  color: #666;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   애니메이션
+========================= */
+@keyframes ping {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}

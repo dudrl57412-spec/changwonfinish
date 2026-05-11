@@ -1,0 +1,28 @@
+/* 폰트적용 */
+
+/* CSS연결 링크 */
+@import url("font.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("chronicle.css");
+@import url("famous.css");
+@import url("touristattraction.css");
+@import url("event.css");
+@import url("festival.css");
+@import url("food.css");
+@import url("footer.css");
+/* css초기화 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}

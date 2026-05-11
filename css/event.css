@@ -1,0 +1,153 @@
+/* 전체 섹션 */
+.event-section {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f5 100%);
+}
+
+.event-section h2 {
+  font-family: "Griun_PolSensibility-Rg";
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.eventtitle-p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 80px;
+}
+
+/* 카드 묶음 */
+.event-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* 카드 */
+.event-card {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: #ccc;
+}
+
+/* 🔥 핵심: 하단 검은 그라데이션 */
+.event-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+/* 텍스트 영역 */
+.event-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  z-index: 2;
+  text-align: left;
+}
+
+.event-content h3 {
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+/* 태그 */
+.tags {
+  margin-bottom: 10px;
+}
+
+.tags span {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+/* 설명 */
+.event-content p {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+/* 이미지영역 */
+.event-card:nth-child(1) {
+  background-image: url("../images/마산축제.jpg");
+}
+
+.event-card:nth-child(2) {
+  background-image: url("../images/진해관광지5.jpg");
+}
+/* =========================
+   🔥 호버 오버레이 효과 추가
+========================= */
+
+/* 전체 어두워지는 오버레이 */
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 1;
+}
+
+/* 텍스트 애니메이션 준비 */
+.event-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  z-index: 2;
+  text-align: left;
+  transition: 0.4s;
+}
+
+/* 설명 숨김 시작 */
+.event-content p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.4s;
+}
+
+/* =========================
+   🎯 HOVER
+========================= */
+
+/* 화면 어두워짐 */
+.event-card:hover::before {
+  opacity: 0.5;
+}
+/* 설명 등장 */
+.event-card:hover .event-content p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   ✨ 추가: 살짝 확대 효과 (선택)
+========================= */
+.event-card {
+  transition: transform 0.4s;
+}
+
+.event-card:hover {
+  transform: scale(1.03);
+}

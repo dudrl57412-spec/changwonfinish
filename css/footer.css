@@ -1,0 +1,90 @@
+/* =========================
+   푸터
+========================= */
+.footer-section {
+  background: #005596;
+
+  padding: 40px 0;
+
+  color: #fff;
+}
+
+/* 내부 */
+.footer-inner {
+  width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 100px;
+}
+
+/* =========================
+   로고
+========================= */
+.footer-logo img {
+  width: 220px;
+
+  display: block;
+}
+
+/* =========================
+   오른쪽
+========================= */
+.footer-info {
+  text-align: right;
+}
+.footer-right{
+  text-align: right;
+}
+/* 주소 */
+.footer-address {
+  margin-bottom: 35px;
+}
+
+.footer-address p {
+  font-size: 15px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  line-height: 1.9;
+}
+
+/* 메뉴 */
+.footer-menu {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.footer-menu a {
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #fff;
+}
+
+/* 카피라이트 */
+.footer-copy {
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  letter-spacing: 0.5px;
+}
