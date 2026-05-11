@@ -1,23 +1,23 @@
 /* =========================
-   헤더 기본 (반투명)
+   헤더 기본
 ========================= */
 .header-section {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 90px;
+
   z-index: 1000;
 
-  background: rgba(0, 85, 150, 0.3); /* 👈 처음 상태 */
+  background: rgba(0, 85, 150, 0.3);
   backdrop-filter: blur(4px);
 
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-/* =========================
-   스크롤 시
-========================= */
+/* 스크롤 시 */
 .header-section.active {
   background: rgba(0, 85, 150, 0.9);
 }
@@ -27,7 +27,10 @@
 ========================= */
 .header-inner {
   max-width: 1400px;
+  width: calc(100% - 40px);
+
   height: 100%;
+
   margin: 0 auto;
 
   display: flex;
@@ -40,48 +43,180 @@
 ========================= */
 .header-logo {
   width: 200px;
+  flex-shrink: 0;
 }
 
 .header-logo img {
   width: 100%;
+  display: block;
 }
 
 /* =========================
-   메뉴 (중앙 정렬 핵심)
+   메뉴
 ========================= */
 .menu {
   flex: 1;
+
   display: flex;
   justify-content: center;
 }
 
 .menu ul {
   display: flex;
+  align-items: center;
   gap: 60px;
 }
 
 .menu ul li a {
-   font-family: "Griun_PolSensibility-Rg";
-  color: #fff;
+  position: relative;
+
+  font-family: "Griun_PolSensibility-Rg";
   font-size: 23px;
+
+  color: #fff;
   text-decoration: none;
+
   white-space: nowrap;
+
+  transition: 0.3s ease;
+}
+
+/* hover 밑줄 */
+.menu ul li a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: #fff;
+
+  transition: 0.4s ease;
+}
+
+.menu ul li a:hover::after {
+  width: 100%;
 }
 
 /* =========================
-   아이콘
+   우측 아이콘
 ========================= */
 .menu-logo {
   width: 180px;
+
   display: flex;
   justify-content: flex-end;
+
+  flex-shrink: 0;
+
+  transition: 0.4s ease;
 }
 
 .menu-logo ul {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 .menu-logo img {
   width: 30px;
+  display: block;
+
+  transition: 0.4s ease;
+}
+
+/* hover */
+.menu-logo a:hover img {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   햄버거 버튼
+========================= */
+.mobile-btn {
+  display: none;
+
+  width: 32px;
+  height: 24px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+}
+
+/* 햄버거 줄 */
+.mobile-btn span {
+  display: block;
+
+  width: 100%;
+  height: 3px;
+
+  background: #fff;
+
+  border-radius: 999px;
+}
+
+/* =========================
+   태블릿
+========================= */
+@media (max-width: 1024px) {
+  .menu ul {
+    gap: 20px;
+  }
+
+  .menu ul li a {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   모바일
+========================= */
+@media (max-width: 760px) {
+  .header-section {
+    height: 75px;
+  }
+
+  .header-inner {
+    width: calc(100% - 30px);
+  }
+
+  /* 메뉴 숨김 */
+  .menu {
+    display: none;
+  }
+
+  /* SNS 숨김 */
+  .menu-logo {
+    width: 0;
+
+    opacity: 0;
+
+    transform: scale(0.7);
+
+    overflow: hidden;
+
+    pointer-events: none;
+  }
+
+  /* 로고 크기 */
+  .header-logo {
+    width: 140px;
+  }
+
+  /* 햄버거 표시 */
+  .mobile-btn {
+    display: flex;
+  }
 }

@@ -415,3 +415,28 @@ foodAreas.forEach((area, index) => {
 
 /* 최초 실행 */
 renderFood(0);
+
+// 축제부분 반응형 js코드
+const festivalSwiper = new Swiper(".festival-swiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+
+  pagination: {
+    el: ".festival-pagination",
+    clickable: true,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+
+    768: {
+      slidesPerView: 2,
+    },
+
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+});

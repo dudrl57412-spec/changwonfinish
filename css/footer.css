@@ -11,7 +11,9 @@
 
 /* 내부 */
 .footer-inner {
-  width: 1400px;
+  width: calc(100% - 60px);
+
+  max-width: 1400px;
 
   margin: 0 auto;
 
@@ -39,7 +41,7 @@
 .footer-info {
   text-align: right;
 }
-.footer-right{
+.footer-right {
   text-align: right;
 }
 /* 주소 */
@@ -87,4 +89,106 @@
   color: rgba(255, 255, 255, 0.45);
 
   letter-spacing: 0.5px;
+}
+
+/* 반응형 */
+/* =========================
+   태블릿
+========================= */
+@media (max-width: 1200px) {
+  .footer-inner {
+    width: calc(100% - 40px);
+
+    gap: 60px;
+  }
+
+  /* 로고 */
+  .footer-logo img {
+    width: 180px;
+  }
+
+  /* 주소 */
+  .footer-address p {
+    font-size: 14px;
+
+    line-height: 1.8;
+  }
+
+  /* 메뉴 */
+  .footer-menu {
+    gap: 14px;
+
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================
+   모바일
+========================= */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 60px 0;
+  }
+
+  /* 내부 */
+  .footer-inner {
+    width: calc(100% - 30px);
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  /* 로고 */
+  .footer-logo img {
+    width: 160px;
+  }
+
+  /* 오른쪽 */
+  .footer-info,
+  .footer-right {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* 주소 */
+  .footer-address {
+    margin-bottom: 25px;
+  }
+
+  .footer-address p {
+    font-size: clamp(13px, 1vw, 15px);
+
+    line-height: 1.8;
+
+    word-break: keep-all;
+  }
+
+  /* 메뉴 */
+  .footer-menu {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .footer-menu a {
+    font-size: 13px;
+  }
+
+  /* 카피 */
+  .footer-copy {
+    font-size: 12px;
+
+    line-height: 1.6;
+  }
 }

@@ -1,11 +1,15 @@
-/* 전체 섹션 */
+/* =========================
+   관광지 섹션
+========================= */
 .tourist-section {
   padding: 120px 0;
   background: linear-gradient(180deg, #f8f9fb 0%, #eef1f5 100%);
   text-align: center;
 }
 
-/* 타이틀 */
+/* =========================
+   타이틀
+========================= */
 .tourist-header h2 {
   font-family: "Griun_PolSensibility-Rg";
   font-size: 40px;
@@ -18,33 +22,44 @@
   margin-bottom: 80px;
 }
 
-/* 3개 정렬 */
+/* =========================
+   내부
+========================= */
 .tourist-inner {
   width: 1200px;
   margin: 0 auto;
+
   display: flex;
   gap: 40px;
 }
 
-/* 카드 */
+/* =========================
+   카드
+========================= */
 .tourist-card {
   flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* 상단 영역 (높이 고정으로 줄 맞춤) */
+/* =========================
+   상단 영역
+========================= */
 .tourist-top {
   height: 260px;
 }
 
-/* 🔥 아이콘 동그라미 (이걸로 교체) */
+/* 아이콘 */
 .icon-wrap {
   width: 90px;
   height: 90px;
+
   margin: 0 auto 15px;
+
   background: #fff;
+
   border-radius: 50%;
 
   display: flex;
@@ -58,7 +73,7 @@
   width: 55px;
 }
 
-/* ❌ 기존 before 동그라미 제거 */
+/* before 제거 */
 .tourist-top::before {
   display: none;
 }
@@ -80,29 +95,46 @@
 .tourist-top span {
   font-size: 14px;
   color: #444;
+
   line-height: 1.6;
+
   display: block;
+
   padding: 0 10px;
 }
 
-/* 이미지 */
+/* =========================
+   이미지
+========================= */
+.tourist-img {
+  width: 100%;
+}
+
 .tourist-img img {
   width: 100%;
   height: 500px;
+
   object-fit: cover;
+
+  display: block;
+
   border-radius: 15px;
-  /* 🔥 그림자 추가 */
+
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  /* 애니메이션 */
+
   transition: all 0.4s ease;
+
   cursor: pointer;
 }
 
-/* 🔥 hover 효과 */
+/* hover */
 .tourist-card:hover .tourist-img img {
   transform: scale(1.05);
 }
-/* span */
+
+/* =========================
+   텍스트 강조
+========================= */
 .sea {
   color: #005596;
   font-weight: 600;
@@ -112,34 +144,53 @@
   color: #7cbd5d;
   font-weight: 600;
 }
+
 .sea,
 .mountain {
   letter-spacing: 1px;
 }
-/* 🔥 모달 */
+
+/* =========================
+   모달
+========================= */
 .modal {
   display: none;
+
   position: fixed;
   inset: 0;
+
   background: rgba(0, 0, 0, 0.7);
+
   justify-content: center;
   align-items: center;
+
   z-index: 999;
 }
 
 .modal-content {
   background: #fff;
+
   padding: 25px;
+
   border-radius: 20px;
+
   width: 1000px;
+
   text-align: center;
+
   position: relative;
+
   animation: fadeUp 0.3s ease;
 }
 
 .modal-content img {
   width: 100%;
+  height: 600px;
+
+  object-fit: cover;
+
   border-radius: 10px;
+
   margin-bottom: 15px;
 }
 
@@ -156,9 +207,12 @@
 /* 닫기 버튼 */
 .close {
   position: absolute;
+
   right: 15px;
   top: 10px;
+
   font-size: 24px;
+
   cursor: pointer;
 }
 
@@ -168,38 +222,172 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* 🔥 모달 이미지 고정 */
-.modal-content img {
-  width: 100%;
-  height: 600px; /* 👉 높이 고정 */
-  object-fit: cover; /* 👉 비율 유지하면서 잘라냄 */
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
+
+/* 모달 이미지 */
 #modal-img {
   padding: 15px;
+
   width: 100%;
   height: 600px;
+
   object-fit: cover;
+
   border-radius: 30px;
 
-  /* 🔥 핵심 */
   opacity: 1;
+
   transition: opacity 0.8s ease;
 }
+
+/* 링크 */
 #modal-link {
   display: inline-block;
+
   margin-top: 10px;
+
   color: #005596;
+
   font-weight: 600;
+
   text-decoration: none;
 }
 
 #modal-link:hover {
   text-decoration: underline;
+}
+
+/* =========================
+   태블릿
+========================= */
+@media (max-width: 1200px) {
+
+  .tourist-inner {
+    width: calc(100% - 40px);
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 35px;
+  }
+
+  /* 카드 */
+  .tourist-card {
+    width: 340px;
+    flex: none;
+  }
+
+  /* 이미지 */
+  .tourist-img img {
+    height: 430px;
+  }
+
+  /* 모달 */
+  .modal-content {
+    width: calc(100% - 40px);
+  }
+
+  #modal-img {
+    height: 500px;
+  }
+
+}
+
+/* =========================
+   모바일
+========================= */
+@media (max-width: 768px) {
+
+  .tourist-section {
+    padding: 90px 0;
+  }
+
+  /* 타이틀 */
+  .tourist-header h2 {
+    font-size: 32px;
+  }
+
+  .tourist-header p {
+    font-size: 14px;
+    margin-bottom: 60px;
+  }
+
+  /* 내부 */
+  .tourist-inner {
+    width: calc(100% - 30px);
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 50px;
+  }
+
+  /* 카드 */
+  .tourist-card {
+    width: 100%;
+    max-width: 340px;
+
+    flex: none;
+
+    margin: 0 auto;
+  }
+
+  /* 상단 */
+  .tourist-top {
+    height: auto;
+  }
+
+  /* 아이콘 */
+  .icon-wrap {
+    width: 75px;
+    height: 75px;
+  }
+
+  .icon-wrap img {
+    width: 45px;
+  }
+
+  /* 제목 */
+  .tourist-top h3 {
+    font-size: 22px;
+  }
+
+  /* 설명 */
+  .tourist-top span {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* 이미지 */
+  .tourist-img {
+    width: 100%;
+  }
+
+  .tourist-img img {
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+  /* 모달 */
+  .modal-content {
+    width: calc(100% - 20px);
+
+    padding: 15px;
+  }
+
+  #modal-img {
+    height: 300px;
+  }
+
 }
