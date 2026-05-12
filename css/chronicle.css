@@ -13,12 +13,15 @@
   font-weight: 600;
   letter-spacing: -0.5px;
 }
+.history-title {
+  margin-bottom: 80px;
+}
 .history-section p {
   font-size: 16px;
   color: #555;
 }
-.history-title{
-  margin-bottom: 80px;  
+.history-title {
+  margin-bottom: 80px;
 }
 .swiper-pagination-bullet-active {
   width: 10px !important;

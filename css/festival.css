@@ -7,9 +7,12 @@
   overflow: hidden;
 }
 
-/* 내부 */
+/* =========================
+   내부
+========================= */
 .festival-inner {
   width: 1500px;
+
   margin: 0 auto;
 
   display: flex;
@@ -18,10 +21,11 @@
 }
 
 /* =========================
-   상단 타이틀 영역
+   상단 타이틀
 ========================= */
 .festival-title {
   width: 100%;
+
   text-align: center;
 
   display: flex;
@@ -34,7 +38,9 @@
 /* 제목 */
 .festival-title h2 {
   font-size: 42px;
+
   line-height: 1.4;
+
   margin-bottom: 30px;
 
   font-family: "Griun_PolSensibility-Rg";
@@ -84,9 +90,11 @@
   border-radius: 999px;
 
   background: #eee;
+
   color: #333;
 
   text-decoration: none;
+
   font-size: 14px;
 
   transition: 0.4s ease;
@@ -102,16 +110,19 @@
 ========================= */
 .festival-swiper {
   width: 100%;
+
   overflow: hidden;
 }
 
 /* 슬라이드 */
 .festival-swiper .swiper-slide {
-  width: 320px !important;
+  width: auto !important;
 
   height: auto;
 
   display: flex;
+
+  justify-content: center;
 }
 
 /* =========================
@@ -119,6 +130,8 @@
 ========================= */
 .festival-card {
   width: 100%;
+
+  max-width: 320px;
 
   background: #fff;
 
@@ -145,6 +158,7 @@
 ========================= */
 .festival-img-wrap {
   width: 100%;
+
   height: 260px;
 
   overflow: hidden;
@@ -172,11 +186,13 @@
 ========================= */
 .festival-text {
   padding-top: 20px;
+
   text-align: center;
 }
 
 .festival-text h3 {
   font-size: 22px;
+
   line-height: 1.5;
 
   margin-bottom: 14px;
@@ -203,6 +219,7 @@
 
 .festival-text a:hover {
   color: #000;
+
   transform: translateX(4px);
 }
 
@@ -210,29 +227,33 @@
    태블릿
 ========================= */
 @media (max-width: 1200px) {
-
   .festival-inner {
     width: calc(100% - 40px);
   }
 
+  /* 타이틀 */
   .festival-title h2 {
     font-size: 38px;
   }
 
-  .festival-swiper .swiper-slide {
-    width: 300px !important;
+  /* 카드 */
+  .festival-card {
+    max-width: 300px;
   }
 
+  /* 이미지 */
   .festival-img-wrap {
     height: 240px;
   }
-
 }
 
 /* =========================
    모바일
 ========================= */
 @media (max-width: 768px) {
+  .festival-swiper {
+    overflow: visible;
+  }
 
   .festival-section {
     padding: 90px 0;
@@ -249,6 +270,7 @@
 
   .festival-title h2 {
     font-size: 32px;
+
     margin-bottom: 24px;
   }
 
@@ -257,20 +279,19 @@
     margin-bottom: 20px;
   }
 
-  /* 슬라이드 */
-  .festival-swiper .swiper-slide {
-    width: 85% !important;
-  }
-
   /* 카드 */
   .festival-card {
+    max-width: 320px;
+
     padding: 16px;
+
     border-radius: 22px;
   }
 
   /* 이미지 */
   .festival-img-wrap {
     height: 220px;
+
     border-radius: 18px;
   }
 
@@ -281,6 +302,7 @@
 
   .festival-text h3 {
     font-size: 20px;
+
     margin-bottom: 10px;
   }
 
@@ -291,7 +313,7 @@
   /* 버튼 */
   .festival-more {
     padding: 12px 24px;
+
     font-size: 13px;
   }
-
 }

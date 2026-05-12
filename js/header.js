@@ -2,7 +2,10 @@ window.addEventListener("load", () => {
   // =========================
   // AOS INIT
   // =========================
-  AOS.init();
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
 
   // =========================
   // 🔥 연대기 swiper
@@ -26,8 +29,9 @@ window.addEventListener("load", () => {
   // =========================
   const famousSwiper = new Swiper(".famous-sw", {
     slidesPerView: 3,
-    spaceBetween: 5,
-    freeMode: true,
+    spaceBetween: 30,
+
+    centeredSlides: false,
 
     pagination: {
       el: ".famous-pagination",
@@ -35,37 +39,64 @@ window.addEventListener("load", () => {
     },
 
     breakpoints: {
+      // 모바일
       0: {
         slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 20,
       },
 
+      // 태블릿
       768: {
         slidesPerView: 2,
+        centeredSlides: false,
+        spaceBetween: 24,
       },
 
-      1024: {
+      // PC
+      1200: {
         slidesPerView: 3,
+        centeredSlides: false,
+        spaceBetween: 30,
       },
     },
   });
 
   // =========================
-  // 🔥 축제 swiper 추가
+  // 🔥 축제 swiper
   // =========================
   const festivalSwiper = new Swiper(".festival-swiper", {
-    slidesPerView: "auto",
+    slidesPerView: 3,
+    spaceBetween: 30,
 
-    spaceBetween: 60,
-
-    speed: 1200,
-
-    grabCursor: true,
-
-    mousewheel: true,
+    centeredSlides: false,
 
     pagination: {
       el: ".festival-pagination",
       clickable: true,
+    },
+
+    breakpoints: {
+      // 모바일
+      0: {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 20,
+      },
+
+      // 태블릿
+      768: {
+        slidesPerView: 2,
+        centeredSlides: false,
+        spaceBetween: 24,
+      },
+
+      // PC
+      1200: {
+        slidesPerView: 3,
+        centeredSlides: false,
+        spaceBetween: 30,
+      },
     },
   });
 
@@ -170,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let current = 0;
 
-      // 기존 슬라이드 제거
       clearInterval(slideInterval);
 
       // 초기 이미지
@@ -189,11 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // 모달 열기
       modal.style.display = "flex";
 
-      // =========================
       // 자동 슬라이드
-      // =========================
       slideInterval = setInterval(() => {
-        // 페이드 아웃
         modalImg.style.opacity = 0;
 
         setTimeout(() => {
@@ -203,35 +230,27 @@ document.addEventListener("DOMContentLoaded", () => {
             current = 0;
           }
 
-          // 이미지 변경
           modalImg.src = item.imgs[current];
 
-          // 페이드 인
           modalImg.style.opacity = 1;
         }, 400);
       }, 3000);
     });
   });
 
-  // =========================
-  // 링크 클릭시 이벤트 충돌 방지
-  // =========================
+  // 링크 클릭 충돌 방지
   modalLink.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
-  // =========================
   // 닫기 버튼
-  // =========================
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 
     clearInterval(slideInterval);
   });
 
-  // =========================
   // 바깥 클릭 닫기
-  // =========================
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
@@ -241,10 +260,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 맛집
-/* =========================
-   맛집 데이터
-========================= */
+// =========================
+// 🔥 맛집
+// =========================
 
 const foodList = document.getElementById("food-list");
 
@@ -265,25 +283,19 @@ const foodData = [
     foods: [
       {
         name: "마산 아구찜",
-
         text: "매콤한 양념과 부드러운 아귀가 일품인 대표 음식",
-
         img: "images/아구찜.jpg",
       },
 
       {
         name: "오동동 복국",
-
         text: "시원하고 깔끔한 국물 맛으로 유명한 복국 맛집",
-
         img: "images/복국.jpg",
       },
 
       {
         name: "마산 해물찜",
-
         text: "신선한 해산물이 가득 들어간 인기 맛집",
-
         img: "images/해물찜.jpg",
       },
     ],
@@ -298,25 +310,19 @@ const foodData = [
     foods: [
       {
         name: "창원 국밥거리",
-
         text: "진한 국물의 깊은 맛을 느낄 수 있는 국밥",
-
         img: "images/국밥.jpg",
       },
 
       {
         name: "가로수길 브런치",
-
         text: "감성적인 분위기의 브런치 카페",
-
         img: "images/브런치.jpg",
       },
 
       {
         name: "창원 스테이크",
-
         text: "분위기 좋은 레스토랑으로 데이트 명소",
-
         img: "images/스테이크.jpg",
       },
     ],
@@ -331,49 +337,39 @@ const foodData = [
     foods: [
       {
         name: "진해 벚꽃카페",
-
         text: "벚꽃 시즌 최고의 감성 카페",
-
         img: "images/벚꽃카페.jpg",
       },
 
       {
         name: "진해 해산물",
-
         text: "싱싱한 회와 해산물이 유명한 맛집",
-
         img: "images/해산물.jpg",
       },
 
       {
         name: "진해 야시장",
-
         text: "다양한 먹거리를 즐길 수 있는 야시장",
-
         img: "images/야시장.jpg",
       },
     ],
   },
 ];
 
-/* =========================
-   렌더 함수
-========================= */
-
+// =========================
+// 렌더 함수
+// =========================
 function renderFood(index) {
   const item = foodData[index];
 
-  /* 제목 */
   foodTitle.innerText = item.title;
 
   foodDesc.innerText = item.desc;
 
-  /* 카드 */
   let html = "";
 
   item.foods.forEach((food) => {
     html += `
-    
       <div class="food-card">
 
         <img src="${food.img}" alt="">
@@ -387,56 +383,29 @@ function renderFood(index) {
         </div>
 
       </div>
-
     `;
   });
 
   foodList.innerHTML = html;
 }
 
-/* =========================
-   클릭 이벤트
-========================= */
-
+// =========================
+// 클릭 이벤트
+// =========================
 foodAreas.forEach((area, index) => {
   area.addEventListener("click", () => {
-    /* active 제거 */
+    // active 제거
     foodAreas.forEach((el) => {
       el.classList.remove("active");
     });
 
-    /* active 추가 */
+    // active 추가
     area.classList.add("active");
 
-    /* 렌더 */
+    // 렌더
     renderFood(index);
   });
 });
 
-/* 최초 실행 */
+// 최초 실행
 renderFood(0);
-
-// 축제부분 반응형 js코드
-const festivalSwiper = new Swiper(".festival-swiper", {
-  slidesPerView: 3,
-  spaceBetween: 30,
-
-  pagination: {
-    el: ".festival-pagination",
-    clickable: true,
-  },
-
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-
-    768: {
-      slidesPerView: 2,
-    },
-
-    1200: {
-      slidesPerView: 3,
-    },
-  },
-});
