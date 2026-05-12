@@ -259,3 +259,23 @@ const foodTitle = document.getElementById("food-title");
 const foodDesc = document.getElementById("food-desc");
 
 const foodAreas = document.querySelectorAll(".food-area");
+// 영상 자동재생
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".bg-video");
+
+  if (video) {
+    video.muted = true;
+
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log("자동재생 성공");
+        })
+        .catch(() => {
+          console.log("자동재생 차단됨");
+        });
+    }
+  }
+});
