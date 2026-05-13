@@ -74,9 +74,6 @@
 
   background: #fff;
 
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    0 6px 12px rgba(0, 0, 0, 0.04);
 
   transition:
     transform 0.3s ease,
