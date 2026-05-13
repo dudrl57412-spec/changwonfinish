@@ -67,16 +67,18 @@ window.addEventListener("load", () => {
   });
 
   // =========================
-  // 🔥 축제 swiper
+  // 축제 swiper
   // =========================
   const festivalSwiper = new Swiper(".festival-swiper", {
-    slidesPerView: 3,
-
-    spaceBetween: 30,
-
-    speed: 1000,
+    speed: 900,
 
     grabCursor: true,
+
+    slidesPerView: 3,
+
+    centeredSlides: false,
+
+    spaceBetween: 18,
 
     pagination: {
       el: ".festival-pagination",
@@ -88,21 +90,21 @@ window.addEventListener("load", () => {
       0: {
         slidesPerView: 1,
         centeredSlides: true,
-        spaceBetween: 20,
+        spaceBetween: 14,
       },
 
       // 태블릿
       768: {
         slidesPerView: 2,
         centeredSlides: false,
-        spaceBetween: 24,
+        spaceBetween: 16,
       },
 
       // PC
       1200: {
         slidesPerView: 3,
         centeredSlides: false,
-        spaceBetween: 30,
+        spaceBetween: 18,
       },
     },
   });

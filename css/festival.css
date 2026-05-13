@@ -2,8 +2,14 @@
    축제 섹션
 ========================= */
 .festival-section {
-  padding: 140px 0;
-  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f5 100%);
+  padding: 140px 20px;
+
+  background: linear-gradient(
+    180deg,
+    #f8f9fb 0%,
+    #eef1f5 100%
+  );
+
   overflow: hidden;
 }
 
@@ -11,31 +17,20 @@
    내부
 ========================= */
 .festival-inner {
-  width: 1500px;
+  max-width: 1400px;
 
   margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* =========================
-   상단 타이틀
+   타이틀
 ========================= */
 .festival-title {
-  width: 100%;
-
   text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   margin-bottom: 70px;
 }
 
-/* 제목 */
 .festival-title h2 {
   font-size: 42px;
 
@@ -50,10 +45,10 @@
    페이지네이션
 ========================= */
 .festival-pagination {
-  margin-bottom: 25px;
-
   display: flex;
   justify-content: center;
+
+  margin-bottom: 25px;
 }
 
 .festival-pagination .swiper-pagination-bullet {
@@ -64,17 +59,16 @@
 
   opacity: 1;
 
-  margin: 0 5px;
+  margin: 0 5px !important;
 
   transition: 0.4s ease;
 }
 
 .festival-pagination .swiper-pagination-bullet-active {
-  background: #007aff;
-
-  width: 32px;
 
   border-radius: 999px;
+
+  background: #005596;
 }
 
 /* =========================
@@ -82,6 +76,7 @@
 ========================= */
 .festival-more {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -106,23 +101,22 @@
 }
 
 /* =========================
-   스와이퍼
+   swiper
 ========================= */
 .festival-swiper {
   width: 100%;
 
   overflow: hidden;
+
+  padding-bottom: 20px;
 }
 
-/* 슬라이드 */
 .festival-swiper .swiper-slide {
-  width: auto !important;
-
-  height: auto;
-
   display: flex;
 
   justify-content: center;
+
+  height: auto;
 }
 
 /* =========================
@@ -130,27 +124,29 @@
 ========================= */
 .festival-card {
   width: 100%;
-
   max-width: 320px;
+
+  margin: 0 auto;
 
   background: #fff;
 
-  border-radius: 28px;
+  border-radius: 26px;
 
   padding: 20px;
 
-  display: flex;
-  flex-direction: column;
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.08);
 
-  transition: 0.45s ease;
-
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
 .festival-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px);
 
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
 /* =========================
@@ -163,7 +159,7 @@
 
   overflow: hidden;
 
-  border-radius: 22px;
+  border-radius: 20px;
 }
 
 .festival-img-wrap img {
@@ -185,7 +181,7 @@
    텍스트
 ========================= */
 .festival-text {
-  padding-top: 20px;
+  padding-top: 18px;
 
   text-align: center;
 }
@@ -202,17 +198,17 @@
   color: #111;
 }
 
-/* 링크 */
 .festival-text a {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
+  text-decoration: none;
 
   font-size: 14px;
 
   color: #666;
-
-  text-decoration: none;
 
   transition: 0.3s ease;
 }
@@ -227,21 +223,15 @@
    태블릿
 ========================= */
 @media (max-width: 1200px) {
-  .festival-inner {
-    width: calc(100% - 40px);
-  }
 
-  /* 타이틀 */
   .festival-title h2 {
     font-size: 38px;
   }
 
-  /* 카드 */
   .festival-card {
     max-width: 300px;
   }
 
-  /* 이미지 */
   .festival-img-wrap {
     height: 240px;
   }
@@ -251,19 +241,11 @@
    모바일
 ========================= */
 @media (max-width: 768px) {
-  .festival-swiper {
-    overflow: visible;
-  }
 
   .festival-section {
-    padding: 90px 0;
+    padding: 90px 15px;
   }
 
-  .festival-inner {
-    width: calc(100% - 30px);
-  }
-
-  /* 타이틀 */
   .festival-title {
     margin-bottom: 55px;
   }
@@ -274,28 +256,26 @@
     margin-bottom: 24px;
   }
 
-  /* 페이지네이션 */
   .festival-pagination {
     margin-bottom: 20px;
   }
 
-  /* 카드 */
   .festival-card {
-    max-width: 320px;
+    width: 100%;
+
+    max-width: 300px;
 
     padding: 16px;
 
     border-radius: 22px;
   }
 
-  /* 이미지 */
   .festival-img-wrap {
     height: 220px;
 
     border-radius: 18px;
   }
 
-  /* 텍스트 */
   .festival-text {
     padding-top: 16px;
   }
@@ -310,7 +290,6 @@
     font-size: 13px;
   }
 
-  /* 버튼 */
   .festival-more {
     padding: 12px 24px;
 
