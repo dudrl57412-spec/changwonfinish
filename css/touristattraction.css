@@ -3,11 +3,8 @@
 ========================= */
 .tourist-section {
   padding: 120px 0;
-
   background: linear-gradient(180deg, #f8f9fb 0%, #eef1f5 100%);
-
   text-align: center;
-
   overflow: hidden;
 }
 
@@ -16,19 +13,14 @@
 ========================= */
 .tourist-header h2 {
   font-family: "Griun_PolSensibility-Rg";
-
   font-size: 40px;
-
   margin-bottom: 12px;
 }
 
 .tourist-header p {
   font-size: 16px;
-
   color: #555;
-
   line-height: 1.7;
-
   margin-bottom: 90px;
 }
 
@@ -37,11 +29,8 @@
 ========================= */
 .tourist-inner {
   width: 1200px;
-
   margin: 0 auto;
-
   display: flex;
-
   gap: 40px;
 }
 
@@ -50,7 +39,6 @@
 ========================= */
 .tourist-card {
   flex: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +56,6 @@
 /* =========================
    관광지 카드 회전 등장
 ========================= */
-
 [data-aos="tourist-rotate"] {
   opacity: 0;
 
@@ -117,25 +104,20 @@
 /* 제목 */
 .tourist-top h3 {
   font-size: 28px;
-
   margin-bottom: 6px;
 }
 
 /* 영어 */
 .tourist-top p {
   font-size: 14px;
-
   color: #777;
-
   margin-bottom: 12px;
 }
 
 /* 설명 */
 .tourist-top span {
   font-size: 14px;
-
   color: #444;
-
   line-height: 1.8;
 
   display: block;
@@ -152,8 +134,7 @@
 
 .tourist-img img {
   width: 100%;
-
-  height: 500px;
+  aspect-ratio: 4 / 5;
 
   object-fit: cover;
 
@@ -243,15 +224,12 @@
 
 .modal-content h3 {
   font-size: 28px;
-
   margin-bottom: 10px;
 }
 
 .modal-content p {
   font-size: 15px;
-
   color: #555;
-
   line-height: 1.7;
 }
 
@@ -332,7 +310,7 @@
   }
 
   .tourist-img img {
-    height: 430px;
+    aspect-ratio: 4 / 5;
   }
 
   .modal-content {
@@ -382,7 +360,6 @@
   /* 상단 */
   .tourist-top {
     height: auto;
-
     margin-bottom: 20px;
   }
 
@@ -409,7 +386,41 @@
 
   /* 이미지 */
   .tourist-img img {
-    height: 350px;
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
     border-radius: 20px;
+  }
+
+  /* 모달 */
+  .modal-content {
+    width: calc(100% - 20px);
+
+    padding: 16px;
+
+    border-radius: 20px;
+  }
+
+  #modal-img {
+    height: 260px;
+
+    border-radius: 16px;
+  }
+
+  .modal-content h3 {
+    font-size: 22px;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .close {
+    font-size: 26px;
+
+    right: 16px;
+    top: 10px;
   }
 }

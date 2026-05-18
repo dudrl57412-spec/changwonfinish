@@ -4,11 +4,7 @@
 .festival-section {
   padding: 140px 20px;
 
-  background: linear-gradient(
-    180deg,
-    #f8f9fb 0%,
-    #eef1f5 100%
-  );
+  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f5 100%);
 
   overflow: hidden;
 }
@@ -46,6 +42,7 @@
 ========================= */
 .festival-pagination {
   display: flex;
+
   justify-content: center;
 
   margin-bottom: 25px;
@@ -65,6 +62,7 @@
 }
 
 .festival-pagination .swiper-pagination-bullet-active {
+  width: 28px;
 
   border-radius: 999px;
 
@@ -97,6 +95,7 @@
 
 .festival-more:hover {
   background: #005596;
+
   color: #fff;
 }
 
@@ -106,9 +105,13 @@
 .festival-swiper {
   width: 100%;
 
-  overflow: hidden;
+  overflow: visible;
 
   padding-bottom: 20px;
+}
+
+.festival-swiper .swiper-wrapper {
+  align-items: stretch;
 }
 
 .festival-swiper .swiper-slide {
@@ -124,6 +127,7 @@
 ========================= */
 .festival-card {
   width: 100%;
+
   max-width: 320px;
 
   margin: 0 auto;
@@ -134,8 +138,7 @@
 
   padding: 20px;
 
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 
   transition:
     transform 0.45s ease,
@@ -145,8 +148,7 @@
 .festival-card:hover {
   transform: translateY(-10px);
 
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
 /* =========================
@@ -223,7 +225,6 @@
    태블릿
 ========================= */
 @media (max-width: 1200px) {
-
   .festival-title h2 {
     font-size: 38px;
   }
@@ -241,13 +242,18 @@
    모바일
 ========================= */
 @media (max-width: 768px) {
-
   .festival-section {
-    padding: 90px 15px;
+    padding: 90px 0;
+  }
+
+  .festival-inner {
+    width: 100%;
   }
 
   .festival-title {
     margin-bottom: 55px;
+
+    padding: 0 20px;
   }
 
   .festival-title h2 {
@@ -260,10 +266,23 @@
     margin-bottom: 20px;
   }
 
+  /* 핵심 */
+  .festival-swiper {
+    overflow: visible;
+  }
+
+  .festival-swiper .swiper-slide {
+    display: flex;
+
+    justify-content: center;
+
+    height: auto;
+  }
+
   .festival-card {
     width: 100%;
 
-    max-width: 300px;
+    max-width: 320px;
 
     padding: 16px;
 

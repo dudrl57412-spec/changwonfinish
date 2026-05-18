@@ -74,6 +74,13 @@ window.addEventListener("load", () => {
 
     grabCursor: true,
 
+    loop: true,
+
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+
     slidesPerView: 3,
 
     centeredSlides: false,
@@ -88,22 +95,28 @@ window.addEventListener("load", () => {
     breakpoints: {
       // 모바일
       0: {
-        slidesPerView: 1,
+        slidesPerView: 1.08,
+
         centeredSlides: true,
-        spaceBetween: 14,
+
+        spaceBetween: 12,
       },
 
       // 태블릿
       768: {
         slidesPerView: 2,
+
         centeredSlides: false,
+
         spaceBetween: 16,
       },
 
       // PC
       1200: {
         slidesPerView: 3,
+
         centeredSlides: false,
+
         spaceBetween: 18,
       },
     },
