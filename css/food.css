@@ -4,53 +4,70 @@
 .food-section {
   padding: 140px 0;
   background: #f5f5f5;
+  overflow: hidden;
 }
 
 .food-inner {
   max-width: 1400px;
   margin: 0 auto;
+
   display: flex;
-  gap: 80px;
-  padding: 0 20px;
   align-items: flex-start;
+  gap: 80px;
+
+  padding: 0 20px;
 }
 
 /* =========================
    지도 영역 (왼쪽)
 ========================= */
 .food-map-wrap {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   max-width: 650px;
 }
 
 .food-map-wrap h2 {
   font-family: "Griun_PolSensibility-Rg";
-  font-size: 42px;
+  font-size: clamp(30px, 4vw, 42px);
+
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   font-weight: 700;
+
+  word-break: keep-all;
 }
 
 .food-map {
   width: 100%;
+
   background: #ffffff;
   border-radius: 20px;
   padding: 20px;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  transition: 0.3s ease;
 }
 
-/* SVG 크기 조절 */
+/* SVG */
 .map-svg {
   width: 100%;
-  height: 420px;
+  height: auto;
+  aspect-ratio: 1000 / 600;
+
   display: block;
 }
 
-/* 공통 */
+/* =========================
+   지도 path 공통
+========================= */
 .area {
   fill: rgba(65, 65, 65, 0.5);
+
   stroke: #ffffff;
   stroke-width: 2;
+
   cursor: pointer;
 
   transition:
@@ -59,7 +76,9 @@
     stroke-width 0.25s ease;
 }
 
-/* 마산 */
+/* =========================
+   마산
+========================= */
 .area.masan:hover {
   fill: rgb(0, 85, 150);
   stroke-width: 4;
@@ -67,7 +86,9 @@
   filter: brightness(1.08) drop-shadow(0 0 10px rgba(0, 85, 150, 0.35));
 }
 
-/* 창원 */
+/* =========================
+   창원
+========================= */
 .area.changwon:hover {
   fill: rgb(56, 56, 56);
   stroke-width: 4;
@@ -75,7 +96,9 @@
   filter: brightness(1.08) drop-shadow(0 0 10px rgba(75, 75, 75, 0.35));
 }
 
-/* 진해 */
+/* =========================
+   진해
+========================= */
 .area.jinhae:hover {
   fill: rgb(255, 183, 197);
   stroke-width: 4;
@@ -88,88 +111,174 @@
 ========================= */
 .food-content {
   flex: 1;
+  min-width: 0;
 }
 
+/* 제목 */
 .food-header h3 {
-  font-size: 42px;
+  font-size: clamp(28px, 4vw, 42px);
+
   margin-bottom: 10px;
   font-weight: 700;
+
+  word-break: keep-all;
 }
 
 .food-header p {
   color: #666;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
+
+  line-height: 1.6;
+  word-break: keep-all;
 }
 
-/* 맛집 리스트 */
+/* =========================
+   맛집 리스트
+========================= */
 .food-list {
   display: flex;
   flex-direction: column;
+
   gap: 20px;
   margin-top: 30px;
 }
 
-/* 맛집 카드 공통 스타일 */
+/* =========================
+   카드
+========================= */
 .food-card {
   background: #fff;
+
   border-radius: 20px;
   padding: 18px;
+
   display: flex;
+  align-items: center;
   gap: 20px;
+
+  min-width: 0;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
   animation: fadeUp 0.35s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* 카드 등장 애니메이션 */
+.food-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 카드 이미지 */
+.food-card img {
+  width: 150px;
+  height: 110px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* 카드 텍스트 깨짐 방지 */
+.food-card-content {
+  min-width: 0;
+}
+
+.food-card-content h4,
+.food-card-content p {
+  word-break: keep-all;
+}
+
+/* =========================
+   카드 애니메이션
+========================= */
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.food-card img {
-  width: 150px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
 /* =========================
-   반응형 모바일 레이아웃
+   태블릿
 ========================= */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .food-inner {
-    flex-direction: column;
-    gap: 40px;
+    gap: 50px;
   }
 
   .food-map-wrap {
+    max-width: 520px;
+  }
+}
+
+/* =========================
+   모바일 직전
+========================= */
+@media (max-width: 950px) {
+  .food-inner {
+    flex-direction: column;
+
+    gap: 50px;
+  }
+
+  .food-map-wrap,
+  .food-content {
+    width: 100%;
     max-width: 100%;
   }
 
   .food-map-wrap h2 {
-    font-size: 30px;
+    margin-bottom: 40px;
+  }
+}
+
+/* =========================
+   모바일
+========================= */
+@media (max-width: 768px) {
+  .food-section {
+    padding: 90px 0;
   }
 
-  .food-header h3 {
-    font-size: 28px;
+  .food-inner {
+    gap: 35px;
   }
 
   .food-card {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .food-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
+  }
+}
+
+/* =========================
+   작은 모바일
+========================= */
+@media (max-width: 480px) {
+  .food-map {
+    padding: 14px;
   }
 
-  .map-svg {
-    height: 300px;
+  .food-card {
+    padding: 15px;
+  }
+
+  .food-card img {
+    height: 180px;
   }
 }
