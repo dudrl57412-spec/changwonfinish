@@ -1,185 +1,89 @@
 window.addEventListener("load", () => {
-  // =========================
-  // AOS INIT
-  // =========================
+  /* =========================
+     AOS
+  ========================= */
   AOS.init({
     duration: 1200,
-
     once: false,
-
     mirror: true,
-
     easing: "ease-out-cubic",
   });
 
-  // =========================
-  // 🔥 연대기 swiper
-  // =========================
-  const historySwiper = new Swiper(".history-sw", {
+  /* =========================
+     SWIPER (그대로 유지)
+  ========================= */
+  new Swiper(".history-sw", {
     loop: true,
-
-    pagination: {
-      el: ".history-pagination",
-      clickable: true,
-    },
-
-    navigation: {
-      nextEl: ".history-next",
-      prevEl: ".history-prev",
-    },
+    pagination: { el: ".history-pagination", clickable: true },
+    navigation: { nextEl: ".history-next", prevEl: ".history-prev" },
   });
 
-  // =========================
-  // 🔥 유명인 swiper
-  // =========================
-  const famousSwiper = new Swiper(".famous-sw", {
+  new Swiper(".famous-sw", {
     slidesPerView: 3,
-
     spaceBetween: 30,
-
-    pagination: {
-      el: ".famous-pagination",
-      clickable: true,
-    },
-
+    pagination: { el: ".famous-pagination", clickable: true },
     breakpoints: {
-      // 모바일
-      0: {
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 20,
-      },
-
-      // 태블릿
-      768: {
-        slidesPerView: 2,
-        centeredSlides: false,
-        spaceBetween: 24,
-      },
-
-      // PC
-      1200: {
-        slidesPerView: 3,
-        centeredSlides: false,
-        spaceBetween: 30,
-      },
+      0: { slidesPerView: 1, centeredSlides: true, spaceBetween: 20 },
+      768: { slidesPerView: 2, centeredSlides: false, spaceBetween: 24 },
+      1200: { slidesPerView: 3, centeredSlides: false, spaceBetween: 30 },
     },
   });
 
-  // =========================
-  // 축제 swiper
-  // =========================
   const festivalSwiper = new Swiper(".festival-swiper", {
     speed: 900,
-
     grabCursor: true,
-
     loop: true,
-
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
     },
-
     slidesPerView: 3,
-
-    centeredSlides: false,
-
     spaceBetween: 18,
-
-    pagination: {
-      el: ".festival-pagination",
-      clickable: true,
-    },
-
+    pagination: { el: ".festival-pagination", clickable: true },
     breakpoints: {
-      // 모바일
-      0: {
-        slidesPerView: 1.08,
-
-        centeredSlides: true,
-
-        spaceBetween: 12,
-      },
-
-      // 태블릿
-      768: {
-        slidesPerView: 2,
-
-        centeredSlides: false,
-
-        spaceBetween: 16,
-      },
-
-      // PC
-      1200: {
-        slidesPerView: 3,
-
-        centeredSlides: false,
-
-        spaceBetween: 18,
-      },
+      0: { slidesPerView: 1.08, centeredSlides: true, spaceBetween: 12 },
+      768: { slidesPerView: 2, centeredSlides: false, spaceBetween: 16 },
+      1200: { slidesPerView: 3, centeredSlides: false, spaceBetween: 18 },
     },
   });
 
-  // =========================
-  // 🔥 헤더 스크롤
-  // =========================
+  /* =========================
+     HEADER
+  ========================= */
   window.addEventListener("scroll", () => {
     const header = document.querySelector(".header-section");
+    if (!header) return;
 
-    if (window.scrollY > 50) {
-      header.classList.add("active");
-    } else {
-      header.classList.remove("active");
-    }
+    header.classList.toggle("active", window.scrollY > 50);
   });
 
-  // =========================
-  // 🔥 모바일 영상 자동재생
-  // =========================
+  /* =========================
+     VIDEO
+  ========================= */
   const video = document.querySelector(".bg-video");
-
   if (video) {
     video.muted = true;
-
     video.play().catch(() => {
-      document.addEventListener(
-        "touchstart",
-        () => {
-          video.play();
-        },
-        { once: true },
-      );
+      document.addEventListener("touchstart", () => video.play(), {
+        once: true,
+      });
     });
   }
-});
 
-// =========================
-// 🔥 관광지 클릭 모달
-// =========================
-document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     관광 모달
+  ========================= */
   const modal = document.getElementById("modal");
-
   const modalImg = document.getElementById("modal-img");
-
   const modalTitle = document.getElementById("modal-title");
-
   const modalDesc = document.getElementById("modal-desc");
-
-  const closeBtn = document.querySelector(".close");
-
   const modalLink = document.getElementById("modal-link");
-
+  const closeBtn = document.querySelector(".close");
   const cards = document.querySelectorAll(".tourist-img img");
 
   let slideInterval;
 
-  // =========================
-  // 관광 데이터
-  // =========================
   const data = [
-    // 마산
     {
       imgs: [
         "images/마산관광지.jpg",
@@ -188,15 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "images/마산관광지4.jpg",
         "images/마산관광지5.jpg",
       ],
-
       title: "마산 관광",
-
       desc: "마산은 바다와 역사, 레트로 감성이 살아있는 도시입니다.",
-
       link: "https://travel.naver.com/domestic/03125/summary?seasonIndex=0",
     },
-
-    // 창원
     {
       imgs: [
         "images/창원관광지1.jpg",
@@ -205,15 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "images/창원관광지4.jpg",
         "images/창원관광지5.jpg",
       ],
-
       title: "창원 관광",
-
       desc: "창원은 자연과 산업이 조화를 이루는 도시입니다.",
-
       link: "https://travel.naver.com/domestic/03120/summary?seasonIndex=0",
     },
-
-    // 진해
     {
       imgs: [
         "images/진해관광지1.jpg",
@@ -222,255 +116,198 @@ document.addEventListener("DOMContentLoaded", () => {
         "images/진해관광지4.jpg",
         "images/진해관광지5.jpg",
       ],
-
       title: "진해 관광",
-
       desc: "진해는 벚꽃으로 유명한 아름다운 도시입니다.",
-
       link: "https://travel.naver.com/domestic/03129/summary?seasonIndex=0",
     },
   ];
 
-  // =========================
-  // 카드 클릭
-  // =========================
   cards.forEach((card, index) => {
-    card.addEventListener("click", (e) => {
-      e.stopPropagation();
-
+    card.addEventListener("click", () => {
       const item = data[index];
-
       let current = 0;
 
       clearInterval(slideInterval);
 
-      // 초기 이미지
-      modalImg.style.opacity = 1;
-
-      modalImg.src = item.imgs[current];
-
-      // 텍스트
-      modalTitle.innerText = item.title;
-
-      modalDesc.innerText = item.desc;
-
-      // 링크
+      modal.style.display = "flex";
+      modalImg.src = item.imgs[0];
+      modalTitle.textContent = item.title;
+      modalDesc.textContent = item.desc;
       modalLink.href = item.link;
 
-      // 모달 열기
-      modal.style.display = "flex";
-
-      // 자동 슬라이드
       slideInterval = setInterval(() => {
         modalImg.style.opacity = 0;
 
         setTimeout(() => {
-          current++;
-
-          if (current >= item.imgs.length) {
-            current = 0;
-          }
-
+          current = (current + 1) % item.imgs.length;
           modalImg.src = item.imgs[current];
-
           modalImg.style.opacity = 1;
-        }, 400);
+        }, 300);
       }, 3000);
     });
   });
 
-  // 링크 클릭 충돌 방지
-  modalLink.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  // 닫기 버튼
-  closeBtn.addEventListener("click", () => {
+  closeBtn?.addEventListener("click", () => {
     modal.style.display = "none";
-
     clearInterval(slideInterval);
   });
 
-  // 바깥 클릭 닫기
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
-
       clearInterval(slideInterval);
     }
   });
-});
 
-// =========================
-// 🔥 맛집
-// =========================
+  /* =========================
+   🔥 맛집 (안전 수정 버전)
+========================= */
 
-const foodList = document.getElementById("food-list");
+  const foodList = document.getElementById("food-list");
+  const foodTitle = document.getElementById("food-title");
+  const foodDesc = document.getElementById("food-desc");
+  const foodAreas = document.querySelectorAll(".food-map .area");
 
-const foodTitle = document.getElementById("food-title");
-
-const foodDesc = document.getElementById("food-desc");
-
-const foodAreas = document.querySelectorAll(".food-area");
-
-// =========================
-// 맛집 데이터
-// =========================
-const foodData = [
-  // 마산
-  {
-    title: "마산 맛집",
-
-    desc: "마산의 대표 로컬 맛집들을 소개합니다.",
-
-    foods: [
-      {
-        name: "오동동 아구찜",
-
-        text: "마산을 대표하는 전통 아구찜 맛집으로 현지인들에게 꾸준히 사랑받는 곳입니다.",
-
-        img: "images/아구찜.jpg",
+  if (foodList && foodTitle && foodDesc && foodAreas.length > 0) {
+    const foodData = {
+      masan: {
+        title: "마산 맛집",
+        desc: "마산의 대표 로컬 맛집들을 소개합니다.",
+        foods: [
+          {
+            name: "오동동 아구찜",
+            text: "마산 대표 맛집",
+            img: "images/아구찜.jpg",
+            address: "오동동 123",
+            phone: "055-123-4567",
+            pet: "가능",
+          },
+          {
+            name: "수산시장 횟집",
+            text: "싱싱한 해산물",
+            img: "images/해산물.jpg",
+            address: "어시장 2길 10",
+            phone: "055-222-1111",
+            pet: "가능",
+          },
+          {
+            name: "가포 칼국수",
+            text: "해물 칼국수",
+            img: "images/칼국수.jpg",
+            address: "가포로 55",
+            phone: "055-333-9999",
+            pet: "불가",
+          },
+        ],
       },
 
-      {
-        name: "마산 수산시장 횟집",
-
-        text: "싱싱한 해산물과 다양한 회를 즐길 수 있는 바다 감성 맛집입니다.",
-
-        img: "images/해산물.jpg",
+      changwon: {
+        title: "창원 맛집",
+        desc: "창원 현지인이 자주 찾는 맛집입니다.",
+        foods: [
+          {
+            name: "국밥거리",
+            text: "진한 국밥",
+            img: "images/국밥.jpg",
+            address: "중앙대로",
+            phone: "055-444-1111",
+            pet: "가능",
+          },
+          {
+            name: "브런치 카페",
+            text: "감성 브런치",
+            img: "images/브런치.jpg",
+            address: "가로수길",
+            phone: "055-555-2222",
+            pet: "가능",
+          },
+          {
+            name: "스테이크",
+            text: "고급 레스토랑",
+            img: "images/스테이크.jpg",
+            address: "상남동",
+            phone: "055-666-3333",
+            pet: "불가",
+          },
+        ],
       },
 
-      {
-        name: "가포 해물칼국수",
-
-        text: "진한 해물 육수와 푸짐한 재료가 매력적인 인기 칼국수 전문점입니다.",
-
-        img: "images/칼국수.jpg",
+      jinhae: {
+        title: "진해 맛집",
+        desc: "벚꽃과 함께 즐기는 맛집",
+        foods: [
+          {
+            name: "벚꽃카페",
+            text: "감성 카페",
+            img: "images/벚꽃카페.jpg",
+            address: "여좌천",
+            phone: "055-777-1111",
+            pet: "가능",
+          },
+          {
+            name: "해산물",
+            text: "싱싱한 회",
+            img: "images/해산물.jpg",
+            address: "중앙시장",
+            phone: "055-888-2222",
+            pet: "가능",
+          },
+          {
+            name: "야시장",
+            text: "길거리 음식",
+            img: "images/야시장.jpg",
+            address: "여좌동",
+            phone: "055-999-3333",
+            pet: "가능",
+          },
+        ],
       },
-    ],
-  },
+    };
 
-  // 창원
-  {
-    title: "창원 맛집",
+    function render(key) {
+      const data = foodData[key];
+      if (!data) return;
 
-    desc: "현지인들이 자주 찾는 창원 인기 맛집입니다.",
+      foodTitle.textContent = data.title;
+      foodDesc.textContent = data.desc;
 
-    foods: [
-      {
-        name: "창원 국밥거리",
-
-        text: "진한 국물의 깊은 맛을 느낄 수 있는 국밥 맛집입니다.",
-
-        img: "images/국밥.jpg",
-      },
-
-      {
-        name: "가로수길 브런치",
-
-        text: "감성적인 분위기의 브런치 카페로 데이트 명소입니다.",
-
-        img: "images/브런치.jpg",
-      },
-
-      {
-        name: "창원 스테이크",
-
-        text: "분위기 좋은 레스토랑으로 특별한 식사를 즐길 수 있습니다.",
-
-        img: "images/스테이크.jpg",
-      },
-    ],
-  },
-
-  // 진해
-  {
-    title: "진해 맛집",
-
-    desc: "벚꽃과 함께 즐길 수 있는 진해 감성 맛집입니다.",
-
-    foods: [
-      {
-        name: "진해 벚꽃카페",
-
-        text: "벚꽃 시즌 최고의 분위기를 느낄 수 있는 감성 카페입니다.",
-
-        img: "images/벚꽃카페.jpg",
-      },
-
-      {
-        name: "진해 해산물",
-
-        text: "싱싱한 회와 해산물이 유명한 진해 대표 맛집입니다.",
-
-        img: "images/해산물.jpg",
-      },
-
-      {
-        name: "진해 야시장",
-
-        text: "다양한 먹거리와 야시장 감성을 함께 즐길 수 있습니다.",
-
-        img: "images/야시장.jpg",
-      },
-    ],
-  },
-];
-
-// =========================
-// 렌더 함수
-// =========================
-function renderFood(index) {
-  const item = foodData[index];
-
-  // 제목
-  foodTitle.innerText = item.title;
-
-  foodDesc.innerText = item.desc;
-
-  // 카드
-  let html = "";
-
-  item.foods.forEach((food) => {
-    html += `
+      foodList.innerHTML = data.foods
+        .map(
+          (f) => `
       <div class="food-card">
-
-        <img src="${food.img}" alt="${food.name}">
-
+        <img src="${f.img}">
         <div class="food-card-text">
-
-          <h4>${food.name}</h4>
-
-          <p>${food.text}</p>
-
+          <h4>${f.name}</h4>
+          <p>${f.text}</p>
+          <div class="food-info">
+            <div>📍 ${f.address}</div>
+            <div>📞 ${f.phone}</div>
+            <div>🐶 ${f.pet}</div>
+          </div>
         </div>
-
       </div>
-    `;
-  });
+    `,
+        )
+        .join("");
+    }
 
-  foodList.innerHTML = html;
-}
+    foodAreas.forEach((area) => {
+      area.addEventListener("click", () => {
+        let key = null;
 
-// =========================
-// 클릭 이벤트
-// =========================
-foodAreas.forEach((area, index) => {
-  area.addEventListener("click", () => {
-    // active 제거
-    foodAreas.forEach((el) => {
-      el.classList.remove("active");
+        if (area.classList.contains("masan")) key = "masan";
+        else if (area.classList.contains("changwon")) key = "changwon";
+        else if (area.classList.contains("jinhae")) key = "jinhae";
+
+        if (!key) return;
+
+        foodAreas.forEach((el) => el.classList.remove("active"));
+        area.classList.add("active");
+
+        render(key);
+      });
     });
 
-    // active 추가
-    area.classList.add("active");
-
-    // 렌더
-    renderFood(index);
-  });
+    render("masan");
+  }
 });
-
-// =========================
-// 최초 실행
-// =========================
-renderFood(0);

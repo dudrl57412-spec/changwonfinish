@@ -188,6 +188,27 @@
   text-align: center;
 }
 
+/* 계절 */
+.festival-season {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  background: #eef4ff;
+
+  color: #005596;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+}
+
 .festival-text h3 {
   font-size: 22px;
 
@@ -266,7 +287,6 @@
     margin-bottom: 20px;
   }
 
-  /* 핵심 */
   .festival-swiper {
     overflow: visible;
   }
@@ -297,6 +317,14 @@
 
   .festival-text {
     padding-top: 16px;
+  }
+
+  .festival-season {
+    font-size: 12px;
+
+    padding: 6px 12px;
+
+    margin-bottom: 10px;
   }
 
   .festival-text h3 {
